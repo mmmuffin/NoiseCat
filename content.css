@@ -1,0 +1,60 @@
+:root[data-noisecat-selection-mode] {
+  cursor: text;
+}
+
+#noisecat-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+}
+
+.noisecat-add-button,
+.noisecat-toast {
+  pointer-events: auto;
+  font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+}
+
+.noisecat-add-button {
+  position: fixed;
+  transform: translate(-50%, 0);
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #17162a 0%, #3d235f 100%);
+  color: #fff7f0;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 16px 38px rgba(19, 15, 34, 0.3);
+  cursor: pointer;
+}
+
+.noisecat-add-button:hover {
+  filter: brightness(1.06);
+}
+
+.noisecat-toast {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 205, 106, 0.18);
+  border-radius: 16px;
+  background: rgba(19, 18, 31, 0.94);
+  color: #fff8ed;
+  line-height: 1.45;
+  box-shadow: 0 16px 36px rgba(9, 8, 19, 0.28);
+}
+
+.noisecat-toast[data-error="true"] {
+  border-color: rgba(255, 132, 132, 0.24);
+  background: rgba(47, 16, 25, 0.94);
+}
+
+@media (max-width: 720px) {
+  .noisecat-toast {
+    top: 14px;
+    right: 12px;
+  }
+}

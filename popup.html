@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoiseCat</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <div class="brand">
+        <div class="brand__mark">NC</div>
+        <div>
+          <h1>NoiseCat</h1>
+          <p>共享屏蔽词库与 X 屏蔽词助手</p>
+        </div>
+      </div>
+
+      <label class="toggle">
+        <span>启用插件</span>
+        <input id="enabled" type="checkbox" />
+      </label>
+
+      <section class="panel">
+        <p class="panel__title">公共词库状态</p>
+        <p id="keywordSummary" class="panel__value">尚未启用</p>
+      </section>
+
+      <button id="openOptions" class="button" type="button">管理公共词库</button>
+    </main>
+
+    <script src="storage.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoiseCat 设置</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Chrome Extension</p>
+        <h1>NoiseCat</h1>
+        <p class="lead">
+          用共享屏蔽词库快速屏蔽大家都讨厌的广告评论，并可按需批量写入你自己的 X 屏蔽词。
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="card__header">
+          <div>
+            <h2>插件开关</h2>
+            <p>关闭后，划词添加、公共词库隐藏和批量同步都会停用。</p>
+          </div>
+          <label class="switch">
+            <span>启用插件</span>
+            <input id="enabled" type="checkbox" />
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__header">
+          <div>
+            <h2>公共词库</h2>
+            <p>填写 GitHub raw 文件地址，例如 `https://raw.githubusercontent.com/mmmuffin/NoiseCat/main/community-keywords/keywords.json`。</p>
+          </div>
+          <label class="switch">
+            <span>启用公共词库</span>
+            <input id="publicKeywordsEnabled" type="checkbox" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="field__label">词库 URL</span>
+          <input
+            id="publicKeywordSourceUrl"
+            class="field__input"
+            type="url"
+            placeholder="https://raw.githubusercontent.com/mmmuffin/NoiseCat/main/community-keywords/keywords.json"
+          />
+        </label>
+
+        <label class="switch switch--block">
+          <span>前端直接隐藏命中公共词库的评论块</span>
+          <input id="publicKeywordHideReplies" type="checkbox" />
+        </label>
+
+        <div class="actions">
+          <button id="saveSettings" class="button" type="button">保存设置</button>
+          <button id="refreshPublicKeywords" class="button button--secondary" type="button">刷新公共词库</button>
+          <button id="syncPublicKeywords" class="button button--ghost" type="button">同步到 X 屏蔽词</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+
+        <section class="summary">
+          <div>
+            <p class="summary__label">缓存状态</p>
+            <p id="cacheSummary" class="summary__value">尚未拉取</p>
+          </div>
+          <div>
+            <p class="summary__label">预览关键词</p>
+            <p id="keywordPreview" class="summary__value">暂无</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="card">
+        <div class="card__header">
+          <div>
+            <h2>当前行为</h2>
+            <p>启用公共词库后，插件会按下面两种方式工作。</p>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li>在推文详情页中，命中公共词库的评论会被直接隐藏。</li>
+          <li>你可以点击“同步到 X 屏蔽词”，把公共词库批量写入自己的 X 设置。</li>
+          <li>划词添加单个屏蔽词的功能会继续保留。</li>
+        </ol>
+      </section>
+
+      <section class="notes">
+        <h3>最近一次结果</h3>
+        <ul>
+          <li id="lastResult">暂无记录</li>
+          <li>需要你在 Chrome 里已经登录 X。</li>
+          <li>当前公共词库拉取仅支持 `raw.githubusercontent.com`。</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="storage.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

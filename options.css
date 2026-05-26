@@ -1,0 +1,259 @@
+:root {
+  color-scheme: light;
+  font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  --bg: #f6efe4;
+  --text: #231d18;
+  --muted: #6b6156;
+  --accent: #d86d41;
+  --accent-2: #f0b866;
+  --panel: rgba(255, 250, 242, 0.88);
+  --border: rgba(101, 73, 45, 0.16);
+  --panel-strong: rgba(255, 255, 255, 0.68);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(216, 109, 65, 0.18), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(240, 184, 102, 0.24), transparent 26%),
+    linear-gradient(180deg, #fcf6ee 0%, var(--bg) 100%);
+}
+
+.page {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 56px;
+}
+
+.hero {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.hero .lead,
+.card h2,
+.card p,
+.notes h3 {
+  margin: 0;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 6vw, 52px);
+  line-height: 1;
+}
+
+.lead {
+  max-width: 700px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.card,
+.notes {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.card + .card,
+.notes {
+  margin-top: 18px;
+}
+
+.card {
+  padding: 24px;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  font-size: 22px;
+}
+
+.card p {
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+.switch--block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.switch span {
+  font-weight: 600;
+}
+
+.switch input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.field {
+  display: block;
+}
+
+.field__label,
+.summary__label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field__input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--panel-strong);
+}
+
+.field__input:focus,
+.button:focus {
+  outline: 2px solid rgba(216, 109, 65, 0.2);
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button--secondary {
+  background: linear-gradient(135deg, #3d235f 0%, #6a4a9f 100%);
+}
+
+.button--ghost {
+  background: linear-gradient(135deg, #1a1a27 0%, #374259 100%);
+}
+
+.button:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.status {
+  min-height: 22px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.status[data-error="true"] {
+  color: #9b2f39;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.summary__value {
+  margin: 0;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.notes {
+  padding: 22px 24px;
+}
+
+.notes h3 {
+  font-size: 18px;
+}
+
+.notes ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100% - 20px, 100%);
+    padding-top: 28px;
+  }
+
+  .card__header,
+  .actions,
+  .summary {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .switch {
+    justify-content: space-between;
+    white-space: normal;
+  }
+}
